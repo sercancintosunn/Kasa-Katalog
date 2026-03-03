@@ -24,8 +24,9 @@ const chassisArray = [
     ],
     description: "BMW E30 ikinci nesil 3 serisidir.",
     images: [
-      { url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/BMW_E30_in_silver_%28facelift%29%2C_front_left_2024-08-18.jpg/500px-BMW_E30_in_silver_%28facelift%29%2C_front_left_2024-08-18.jpg", is_primary: true },
-      { url: "https://upload.wikimedia.org/wikipedia/commons/8/8d/BMW_E30_rot.jpg", is_primary: false }
+     { url: "https://upload.wikimedia.org/wikipedia/commons/a/a7/BMW_E30_in_silver_%28facelift%29%2C_front_left_2024-08-18.jpg", is_primary: true },
+    { url: "https://upload.wikimedia.org/wikipedia/commons/8/8d/BMW_E30_rot.jpg", is_primary: false }
+
     ]
   },
   {
@@ -46,8 +47,10 @@ const chassisArray = [
     ],
     description: "BMW E46 sürüş dinamiği ile öne çıkar.",
     images: [
-      { url: "https://tr.wikipedia.org/wiki/BMW_3_Serisi_(E46)#/media/Dosya:2000-2003_BMW_330Ci_(E46)_coupe_(2011-07-17)_01.jpg", is_primary: true },
-      { url: "https://tr.wikipedia.org/wiki/BMW_3_Serisi_(E46)#/media/Dosya:1999-2000_BMW_323Ci_(E46)_coupe_01.jpg", is_primary: false }
+      { url: "https://upload.wikimedia.org/wikipedia/commons/9/92/2000-2003_BMW_330Ci_%28E46%29_coupe_%282011-07-17%29_01.jpg", is_primary: true },
+      { url: "https://upload.wikimedia.org/wikipedia/commons/8/82/1999-2000_BMW_323Ci_%28E46%29_coupe_01.jpg", is_primary: false }
+
+
     ]
   },
   {
@@ -67,12 +70,11 @@ const chassisArray = [
     ],
     description: "W211 konfor ve teknoloji açısından önemli bir jenerasyondur.",
     images: [
-      { url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsDrvBJz688CLepHojL3ItHFYdKP-NQa2KDQ&s", is_primary: true },
-      { url: "https://arabam-blog.mncdn.com/wp-content/uploads/2020/11/Mercedes-Benz-E-class-W211.jpg", is_primary: false }
+      { url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/00_Mercedes-Benz_W213_Facelift_e300e.jpg", is_primary: true },
+      { url: "https://upload.wikimedia.org/wikipedia/commons/5/50/MERCEDES-BENZ_E-CLASS_%28W211%29_China_%286%29.jpg", is_primary: false }    
     ]
   }
-];
-
+]
 const seedDatabase = async () =>{
     try {
         await mongoose.connect(process.env.MONGODB_URI)
