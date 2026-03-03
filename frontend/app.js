@@ -1,18 +1,6 @@
 const chassisGrid = document.querySelector('.chassis-grid')
-// const chassisCard = document.querySelector('.chassis-card')
-// const cardBody = document.querySelector('.card-body')
-// const cardTop = document.querySelector('.card-top')
-// const code = document.querySelector('.code')
-// const brand = document.querySelector('.brand')
-// const chassisModel = document.querySelector('.chassis-model')
-// const chassisYear = document.querySelector('.chassis-year')
-// const cardTags = document.querySelector('.card-tags')
-// const tag = document.querySelector('.tag')
-// const cardEngines = document.querySelector('.card-engines')
-// const engineRow = document.querySelector('.engine-row')
-// const engineCode = document.querySelector('.engine-code')
-// const enginePower = document.querySelector('.engine-power')
-// const cardImage = document.querySelector('.card-image') 
+const chassisCard = document.querySelector('.chassis-card')
+
 
 async function getAll(){
     try{
@@ -29,7 +17,7 @@ async function getAll(){
         data.data.forEach(result => {
             
             const cardHTML = `
-            <div class="chassis-card">
+            <div class="chassis-card" data-slug="${result.slug}">
                     <div class="card-body">
                         <div class="card-top">
                             <span class="code">${result.code}</span>
@@ -57,6 +45,16 @@ async function getAll(){
                     </div>
                 </div>
                            `
+            chassisGrid.addEventListener('click',(e)=>{
+                const card = e.target.closest(".chassis-card")
+
+                if(card){
+                    const slug = card.dataset.slug
+
+                    window.location.href = `http://127.0.0.1:5500/frontend/detail.html?slug=${slug}`
+                }
+            })
+           
             
                            
             chassisGrid.insertAdjacentHTML('beforeend', cardHTML);    
