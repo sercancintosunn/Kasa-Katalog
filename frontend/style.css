@@ -1,3 +1,18 @@
+:root[data-theme="dark"] {
+--bg: #0e0e0e;
+--bg-card: #161616;
+--bg-hover: #1e1e1e;
+--border: #2a2a2a;
+--text: #e8e8e8;
+--text-muted: #666;
+--text-dim: #444;
+--accent: #e8e8e8;
+--accent-muted: #333;
+--tag-bg: #1e1e1e;
+--tag-text: #888;
+--input-bg: #111;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -6,8 +21,8 @@
 
 body{
     font-family: 'DM Sans', sans-serif;
-    background-color: #0e0e0e;
-    color: #e8e8e8;
+    background: #0e0e0e;
+    color: var(--text);
     min-height: 100vh;
 }
 
@@ -18,14 +33,14 @@ header{
     align-items: center;
     height: 56px;
     padding: 0 2rem;
-    background-color: #0e0e0e;
+    background: #0e0e0e;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .logo{
-    color: #e8e8e8;
+    color: #666;
     text-decoration: none;
     font-family: 'DM mono', monospace;
     font-weight: 500;
@@ -42,7 +57,7 @@ header{
     height: 30px;
     width: 200px;
     padding: 0.4rem 0.8rem;
-    background-color: #111;
+    background: #111;
     border: 1px solid #2a2a2a;
     font-size: 0.8rem;
     font-family: 'DM mono',monospace;
@@ -51,6 +66,214 @@ header{
     color: #e8e8e8;
 }
 
-.search-input::placeholder{color: #bbb}
-.search-input:focus{border-color: #666;}
+.search-input::placeholder{color: #444}
+.search-input:focus{border-color: #666}
+
+.layout{
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: calc(100vh - 56px);
+}
+
+aside{
+    border-right: 1px solid #2a2a2a;
+    padding: 1.5rem;
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+}
+
+.filter-group{
+    margin-bottom: 1.8rem;
+}
+
+.filter-label{
+    font-size: 0.65rem;
+    color: #444;
+    margin-bottom: 0.8rem;
+    display: block;
+    font-family: 'DM Mono', sans-serif;
+}
+
+.filter-options{
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.filter-btn{
+    background: none;
+    color: #333;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    font-family: 'DM Mono',sans-serif;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.filter-btn:hover{
+    background: #1e1e1e;
+    color: #e8e8e8;
+}
+.filter-btn.active{
+    color: #e8e8e8;
+}
+
+.filter-count{
+    color: #444;
+    font-size: 0.7rem;
+}
+
+main{
+    padding: 1.5rem 2rem;
+}
+
+.content-header{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #2a2a2a;
+}
+
+.content-title{
+    color: #e8e8e8;
+    text-transform: uppercase;
+    font-family: 'DB Mono', sans-serif;
+}
+
+.view-toggle{
+    display: flex;
+    gap: 0.3rem;
+}
+
+.view-btn{
+    background: none;
+    color: #444;
+    padding: 0.2rem;
+    border: 1px solid #2a2a2a;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+.view-btn.active, .view-btn:hover{
+    border-color: #666;
+    color: #e8e8e8;
+}
+
+.chassis-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap: 1px;
+    background: #2a2a2a;
+    
+}
+
+.chassis-card{
+    background: #161616;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr 90px;
+    padding: 1.4rem;
+    overflow: hidden;
+    position: relative;
+    gap: 1rem;
+}
+
+.chassis-card:hover{
+    background: #1e1e1e;
+}
+
+.card-body{
+    min-width: 0;
+}
+.card-image{
+    width: 90px;
+    height: 90px;
+    border: 1px solid #2a2a2a;
+    background: #161616;
+    align-self: start;
+    overflow: hidden;
+    
+    
+}
+
+.card-image img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.card-top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+}
+.code{
+    color: #e8e8e8;
+    font-family: 'DB Mono', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+}
+.brand{
+    border: 1px solid #2a2a2a;
+    color: #444;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+}
+
+.chassis-model{
+    color: #666;
+    font-size: 0.8rem;
+    margin-bottom: 0.1rem;
+}
+
+.chassis-year{
+    color: #444;
+    font-size: 0.7rem;
+    margin-bottom: 1rem;
+}
+.card-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+}
+.tag{
+    border: 1px solid #2a2a2a;
+    color: #888;
+    background: #161616;
+    font-size: 0.6rem;
+    padding: 0.3rem;
+}
+.card-engines{
+    border-top: 1px solid #2a2a2a;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.engine-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.engine-code{
+    color: #666;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.engine-power{
+    color: #666;
+    font-size: 0.7rem;
+}
 
