@@ -334,6 +334,43 @@ footer{
     filter: grayscale(15%);
 }
 
+.sidebar-card{
+    margin-bottom: 1rem;
+    border: 1px solid #2a2a2a;
+    padding: 1.2rem;
+}
+
+.sidebar-card-label{
+    color: #444;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    margin: 0.6rem;   
+}
+
+.related-item{
+    border-bottom: 1px solid #2a2a2a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.4rem 0;
+}
+
+.related-code{
+    color: #e8e8e8;
+    font-size: 0.8rem;
+    
+}
+
+.related-years{
+    color: #444;
+    font-size: 0.7rem;
+}
+
+.related-item:last-child{
+    border: none;
+}
+
 
 
 .detail-header{
@@ -354,7 +391,7 @@ footer{
 }
 
 .detail-description{
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     color: #666;
     margin: 1.2rem 0;
     max-width: 520px;
@@ -382,6 +419,7 @@ footer{
     color: #e8e8e8;
     padding: 0.6rem 0.8rem;
     font-size: 0.82rem;
+    text-transform: uppercase;
 }
 
 .engines-section{
@@ -412,3 +450,4 @@ footer{
 .engines-table td:first-child{
     color: #e8e8e8;
 }
+

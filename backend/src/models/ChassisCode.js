@@ -30,15 +30,24 @@ const schema = mongoose.Schema({
         end: {type: Number}
     },
     body_styles: [{
-        type: {type:String, enum: ["sedan","coupe","cabrio","wagon","hatchback","suv","van"]},
+        type: {type:String, enum: ["sedan","coupe","cabrio","wagon","hatchback","suv"]},
         doors: Number,
         sub_code: String
     }],
-    engines: [{
-        engine_code: String,
+    variants: [{
+        name: String,
         power_hp: Number,
+        torque_nm: Number,
+        acceleration:Number,
+        weight:Number,
+        engine_size:Number,
+        traction:{
+            type:String,
+            enum:["arkadan itiş","önden çekiş","4x4"]
+        },
         fuel_type: {type:String, enum:["benzin","dizel","lpg","hibrit","elektrik"]}
     }],
+
     description:{
         type: String
     },

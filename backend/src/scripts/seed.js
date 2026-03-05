@@ -18,9 +18,28 @@ const chassisArray = [
       { type: "coupe", doors: 2 },
       { type: "cabrio", doors: 2 }
     ],
-    engines: [
-      { engine_code: "M20B25", power_hp: 170, fuel_type: "benzin" },
-      { engine_code: "M40B18", power_hp: 113, fuel_type: "benzin" }
+    variants: [
+      {
+        name: "318i",
+        power_hp: 113,
+        torque_nm: 162,
+        acceleration: 10.8,
+        engine_size: 1.8,
+        weight: 1120,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      },
+      {
+        name: "325i",
+        power_hp: 170,
+        engine_size: 2.5,
+        torque_nm: 222,
+        acceleration: 7.4,
+        top_speed: 225,
+        weight: 1200,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      }
     ],
     description: "BMW E30 ikinci nesil 3 serisidir.",
     images: [
@@ -41,9 +60,91 @@ const chassisArray = [
       { type: "coupe", doors: 2 },
       { type: "wagon", doors: 5 }
     ],
-    engines: [
-      { engine_code: "M54B30", power_hp: 231, fuel_type: "benzin" },
-      { engine_code: "M47D20", power_hp: 150, fuel_type: "dizel" }
+    variants: [
+      {
+        name: "316i",
+        power_hp: 105,
+        engine_size: 1.8,
+        torque_nm: 150,
+        acceleration: 12.3,
+        top_speed: 200,
+        weight: 1315,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      },
+
+      {
+        name: "318i",
+        power_hp: 118,
+        engine_size: 2.0,
+        torque_nm: 180,
+        acceleration: 10.4,
+        top_speed: 206,
+        weight: 1365,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      },
+
+      {
+        name: "320i",
+        power_hp: 150,
+        torque_nm: 200,
+        engine_size: 2.2,
+        acceleration: 9.0,
+        top_speed: 220,
+        weight: 1395,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      },
+
+      {
+        name: "323i",
+        power_hp: 170,
+        torque_nm: 245,
+        acceleration: 7.8,
+        engine_size: 2.5,
+        top_speed: 231,
+        weight: 1420,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      },
+
+      {
+        name: "325i",
+        power_hp: 192,
+        torque_nm: 245,
+        engine_size: 2.5,
+        acceleration: 7.2,
+        top_speed: 240,
+        weight: 1430,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      },
+
+      {
+        name: "330i",
+        power_hp: 231,
+        torque_nm: 300,
+        engine_size: 3.0,
+        acceleration: 6.5,
+        top_speed: 250,
+        weight: 1470,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      },
+
+      {
+        name: "M3",
+        power_hp: 343,
+        torque_nm: 365,
+        acceleration: 5.1,
+        engine_size: 3.2,
+        top_speed: 250,
+        weight: 1570,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      }
+      
     ],
     description: "BMW E46 sürüş dinamiği ile öne çıkar.",
     images: [
@@ -64,9 +165,77 @@ const chassisArray = [
       { type: "sedan", doors: 4 },
       { type: "wagon", doors: 5 }
     ],
-    engines: [
-      { engine_code: "OM648", power_hp: 204, fuel_type: "dizel" },
-      { engine_code: "M113", power_hp: 306, fuel_type: "benzin" }
+    variants: [
+      {
+        name: "E200 Kompressor",
+        power_hp: 163,
+        engine_size: 1.8,
+        torque_nm: 240,
+        acceleration: 9.6,
+        top_speed: 230,
+        weight: 1540,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      },
+
+      {
+        name: "E240",
+        engine_size: 2.6,
+        power_hp: 177,
+        torque_nm: 240,
+        acceleration: 9.0,
+        top_speed: 236,
+        weight: 1585,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      },
+      {
+        name: "E280",
+        power_hp: 231,
+        engine_size: 3.0,
+        torque_nm: 300,
+        acceleration: 7.3,
+        top_speed: 250,
+        weight: 1600,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      },
+
+      {
+        name: "E320",
+        power_hp: 224,
+        torque_nm: 315,
+        engine_size: 3.2,
+        acceleration: 7.7,
+        top_speed: 250,
+        weight: 1605,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      },
+
+      {
+        name: "E350",
+        power_hp: 272,
+        torque_nm: 350,
+        engine_size: 3.5,
+        acceleration: 6.9,
+        top_speed: 250,
+        weight: 1615,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      },
+
+      {
+        name: "E55 AMG",
+        power_hp: 476,
+        torque_nm: 700,
+        engine_size: 5.4,
+        acceleration: 4.7,
+        top_speed: 250,
+        weight: 1835,
+        fuel_type: "benzin",
+        traction: "arkadan itiş"
+      }
     ],
     description: "W211 konfor ve teknoloji açısından önemli bir jenerasyondur.",
     images: [

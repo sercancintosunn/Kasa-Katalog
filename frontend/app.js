@@ -30,10 +30,10 @@ async function getAll(){
                             
                         </div>
                         <div class="card-engines">
-                           ${result.engines.map(engine => `
+                           ${result.variants.map(variant => `
                                 <div class=engine-row>
-                                    <span class="engine-code">${engine.engine_code}</span>
-                                    <span class="engine-power">${engine.power_hp} HP</span>     
+                                    <span class="engine-code">${variant.name}</span>
+                                    <span class="engine-power">${variant.power_hp} HP</span>     
                             </div>
                             
                             `).join('')}
