@@ -450,4 +450,8 @@ footer{
 .engines-table td:first-child{
     color: #e8e8e8;
 }
+.engine-row-clickable { cursor: pointer; }
+.engine-row-clickable.active td { color: #e8e8e8; }
+.engine-row-clickable:hover td { background: #1e1e1e; }
+
 

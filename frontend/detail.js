@@ -1,6 +1,6 @@
 const detailGrid = document.querySelector('.detail-grid')
 
-
+let currentResult = null
 
 async function getBySlug() {
 
@@ -20,33 +20,34 @@ async function getBySlug() {
 
         detailGrid.innerHTML = ''
 
-        const result = data.data
+        currentResult = data.data;
+        const related = data.related;
 
             const cardHTML = `
             
-           <div class = "detail-grid"> 
+           
                 <div> 
                     <div class="detail-header">
-                        <div class="detail-code">${result.code}</div>
-                        <div class="detail-subtitle">${result.brand} ${result.model} serisi -  ${result.generation}.Nesil</div>
-                    </div
-                    <p class="detail-description">${result.description}</p>
+                        <div class="detail-code">${currentResult.code}</div>
+                        <div class="detail-subtitle">${currentResult.brand} ${currentResult.model} serisi -  ${currentResult.generation}.Nesil</div>
+                    </div>
+                    <p class="detail-description">${currentResult.description}</p>
                     <div class="spec-table"> 
                         <div class="spec-row">
                             <span class="spec-key">Üretim</span>
-                            <span class="spec-value">${result.production.start} - ${result.production.end} </span>
+                            <span class="spec-val">${currentResult.production.start} - ${currentResult.production.end} </span>
                         </div>
                         <div class="spec-row">
                             <span class="spec-key">0/100 km/s Hızlanma</span>
-                            <span class="spec-value">${result.variants.acceleration}</span>
+                            <span class="spec-val"  id="specAcceleration">${currentResult.variants[0].acceleration}</span>
                         </div>
                         <div class="spec-row">
                             <span class="spec-key">Çeker Sistemi</span>
-                            <span class="spec-value">${result.variants.traction}</span>
+                            <span class="spec-val"  id="specTraction">${currentResult.variants[0].traction}</span>
                         </div>
                         <div class="spec-row">
                             <span class="spec-key">Ağırlık</span>
-                            <span class="spec-value">${result.variants.weight}</span>
+                            <span class="spec-val" id="specWeight" >${currentResult.variants[0].weight}</span>
                         </div>
                     </div>
 
@@ -64,36 +65,82 @@ async function getBySlug() {
                                 </tr>
                             </thead>
                             <tbody>
-                            ${result.variants.map(variant =>`
-                                <tr>
+                            ${currentResult.variants.map((variant, index) =>`
+                                <tr class="engine-row-clickable ${index === 0 ? 'active' : '' }" data-index="${index}">
                                     <td>${variant.name}</td>
-                                    <td>${variant.engine_size}</td>
-                                    <td>${variant.power_hp}</td>
-                                    <td>${variant.torque_nm}</td>
+                                    <td>${Number(variant.engine_size).toFixed(1)}l</td>
+                                    <td>${variant.power_hp}hp</td>
+                                    <td>${variant.torque_nm}Nm</td>
                                     <td>${variant.fuel_type}</td>
                                 </tr>
+                                  `
+                            ).join('')}
+
                             </tbody>  
-                            `
-                        ).join('')}
-
+                          
                         </table>
-
-
-
 
                     </div>
                 
                 </div>   
-                
-        
-            
-            </div>
-            
-            
+                <div class="detail-image-sticky">
+                    <div class="detail-main-image">
+                        <img src="${currentResult.images[0].url}">
+                    </div>
+               
+                <div class="sidebar-card">
+                    <div class="sidebar-card-label">İlgıli Kasalar</div>
+                    ${related.map(style => `
+
+                        <a href="?slug=${style.slug}" style="text-decoration:none; color:inherit;">
+                        
+                        <div class="related-item">
+                            <span class="related-code">${style.code}</span>
+                            <span class="related-years">${style.production.start} - ${style.production.end}</span>
+                        </div>
+                        </a>
+                        
+                        `).join('')}       
+                </div>
+
+                <div class="sidebar-card">
+                    <div class="sidebar-card-label">Kasa Tipleri</div>
+                    ${currentResult.body_styles.map(style => `
+                        
+                        <div class="related-item">
+                            <span class="related-code">${style.type}</span>
+                            <span class="related-years">${style.doors}</span>
+                        </div>
+                       
+                        
+                        `).join('')}       
+                </div>
+                 </div>
             
             `
         
              detailGrid.insertAdjacentHTML('beforeend', cardHTML);    
+             
+             console.log(document.querySelector('.engines-table tbody'))
+
+
+             document.querySelector('.engines-table tbody').addEventListener('click',(e)=>{
+                console.log('tıklandı', e.target)
+                console.log('row', e.target.closest('tr'))
+                const row = e.target.closest('tr')
+                if(!row) return
+
+                const index = row.dataset.index
+                const variant = currentResult.variants[index]
+
+                document.querySelectorAll('.engine-row-clickable').forEach(r => r.classList.remove('active'))
+                row.classList.add('active')
+    
+
+                document.getElementById('specAcceleration').textContent = variant.acceleration
+                document.getElementById('specTraction').textContent = variant.traction
+                document.getElementById('specWeight').textContent = variant.weight
+             })
 
         
 
