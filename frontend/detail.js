@@ -39,7 +39,7 @@ async function getBySlug() {
                         </div>
                         <div class="spec-row">
                             <span class="spec-key">0/100 km/s Hızlanma</span>
-                            <span class="spec-val"  id="specAcceleration">${currentResult.variants[0].acceleration}</span>
+                            <span class="spec-val"  id="specAcceleration">${currentResult.variants[0].acceleration}s</span>
                         </div>
                         <div class="spec-row">
                             <span class="spec-key">Çeker Sistemi</span>
@@ -47,7 +47,7 @@ async function getBySlug() {
                         </div>
                         <div class="spec-row">
                             <span class="spec-key">Ağırlık</span>
-                            <span class="spec-val" id="specWeight" >${currentResult.variants[0].weight}</span>
+                            <span class="spec-val" id="specWeight" >${currentResult.variants[0].weight}kg</span>
                         </div>
                     </div>
 
@@ -137,9 +137,9 @@ async function getBySlug() {
                 row.classList.add('active')
     
 
-                document.getElementById('specAcceleration').textContent = variant.acceleration
-                document.getElementById('specTraction').textContent = variant.traction
-                document.getElementById('specWeight').textContent = variant.weight
+                document.getElementById('specAcceleration').textContent = variant.acceleration + "s"
+                document.getElementById('specTraction').textContent = variant.traction 
+                document.getElementById('specWeight').textContent = variant.weight + "kg"
              })
 
         

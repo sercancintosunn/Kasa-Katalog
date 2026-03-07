@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const db = require('./config/database')
 const chassisRouter = require('./routes/chassis')
+const path = require('path')
 
 dotenv.config();
 
@@ -11,6 +12,9 @@ const app = express();
 app.use(cors());
 
 app.use(express.json())
+
+app.use(express.static(path.join(__dirname,'../../frontend')))
+app.use(express.static(path.join(__dirname,'../../frontend/detail.html')))
 
 app.get('/', (req,res) =>{
     res.json("API çalışıyor")

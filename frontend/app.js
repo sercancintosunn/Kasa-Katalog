@@ -45,16 +45,7 @@ async function getAll(){
                     </div>
                 </div>
                            `
-            chassisGrid.addEventListener('click',(e)=>{
-                const card = e.target.closest(".chassis-card")
-
-                if(card){
-                    const slug = card.dataset.slug
-
-                    window.location.href = `http://127.0.0.1:5500/frontend/detail.html?slug=${slug}`
-                }
-            })
-           
+            
             
                            
             chassisGrid.insertAdjacentHTML('beforeend', cardHTML);    
@@ -67,4 +58,15 @@ async function getAll(){
 }
 
 getAll()
+
+chassisGrid.addEventListener('click',(e)=>{
+                const card = e.target.closest(".chassis-card")
+
+                if(card){
+                    const slug = card.dataset.slug
+
+                    window.location.href = `/detail.html?slug=${slug}`
+                }
+            })
+           
 

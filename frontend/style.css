@@ -422,6 +422,10 @@ footer{
     text-transform: uppercase;
 }
 
+#specAcceleration{
+    text-transform: none;
+}
+
 .engines-section{
     margin-top: 1.5rem;
 }
