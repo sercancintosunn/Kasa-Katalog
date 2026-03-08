@@ -2,12 +2,34 @@ const Chassis = require('../models/ChassisCode')
 
 const get_all = async (req,res) =>{
     try{
-        const results = await Chassis.find();
+
+        
+        const {q, brand, fuel,body} = req.query
+        const filter = {}
+
+
+        if(q){
+            filter.$or = [
+                {code: new RegExp(q,'i')},
+                {brand: new RegExp(q,'i')},
+                {model: new RegExp(q,'i')}
+            ]
+        }
+        if(brand) filter.brand = new RegExp(brand,'i')
+        if(fuel) filter['variants.fuel_type'] = new RegExp(fuel,'i')
+        if(body) filter['body_styles.type'] = new RegExp(body,'i')
+ 
+        const results = await Chassis.find(filter)
+        .select('code slug brand model production images body_styles variants')
+        .lean()
         res.status(200).json({
             success: true,
             count: results.length,
             data: results
         })
+
+        
+    
 
     }catch(err){
         console.error(err)

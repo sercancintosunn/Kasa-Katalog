@@ -1,10 +1,29 @@
 const chassisGrid = document.querySelector('.chassis-grid')
 const chassisCard = document.querySelector('.chassis-card')
+const searchInput = document.querySelector('.search-input')
+const filterBtn = document.querySelectorAll('.filter-btn')
+
+const activeFilters = {
+    q: '',
+    brand: '',
+    fuel: '',
+    body: ''
+}
 
 
-async function getAll(){
+async function getAll({q = '' , brand = '', fuel = '', body = ''} = {}){
     try{
-        const response = await fetch('http://localhost:5000/api/chassis')
+
+        const params = new URLSearchParams()
+        if(q) params.append('q',q)
+        if(brand) params.append('brand',brand)
+        if(fuel) params.append('fuel',fuel)
+        if(body) params.append('body',body)
+        
+        const url = `http://localhost:5000/api/chassis?${params.toString()}`
+        
+
+        const response = await fetch(url)
 
         if(!response.ok){
             throw new Error('Api hatası')
@@ -57,7 +76,7 @@ async function getAll(){
     
 }
 
-getAll()
+
 
 chassisGrid.addEventListener('click',(e)=>{
                 const card = e.target.closest(".chassis-card")
@@ -68,5 +87,26 @@ chassisGrid.addEventListener('click',(e)=>{
                     window.location.href = `/detail.html?slug=${slug}`
                 }
             })
-           
 
+
+searchInput.addEventListener('input',(e)=>{
+   activeFilters.q = e.target.value
+   getAll(activeFilters)
+})
+
+filterBtn.forEach(btn =>{
+    btn.addEventListener('click',function(){
+        this.closest('.filter-options').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'))
+        this.classList.add('active')
+
+        const filterType = this.closest('.filter-group').dataset.filter
+        const value = this.dataset.value
+
+        activeFilters[filterType] = value
+
+        getAll(activeFilters)
+    })
+})
+
+
+getAll()
