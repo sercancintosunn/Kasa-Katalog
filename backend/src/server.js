@@ -26,7 +26,7 @@ const startServer = async () =>{
     try {
         await db.connect()
 
-        app.listen(process.env.PORT, () =>{
+        app.listen(process.env.PORT || 5000,  () =>{
         console.log(`Sunucu ${process.env.PORT}'da çalışıyor`)
         })
     } catch (error) {
