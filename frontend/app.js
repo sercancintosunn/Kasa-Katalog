@@ -20,7 +20,7 @@ async function getAll({q = '' , brand = '', fuel = '', body = ''} = {}){
         if(fuel) params.append('fuel',fuel)
         if(body) params.append('body',body)
         
-        const url = `http://localhost:5000/api/chassis?${params.toString()}`
+        const url = `https://kasa-katalog.onrender.com/api/chassis?${params.toString()}`
         
 
         const response = await fetch(url)

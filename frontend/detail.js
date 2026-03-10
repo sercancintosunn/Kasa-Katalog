@@ -8,7 +8,7 @@ async function getBySlug() {
         const params = new URLSearchParams(window.location.search)
         const slug = params.get('slug')
 
-        const response = await fetch(`http://localhost:5000/api/chassis/${slug}`)
+        const response = await fetch(`https://kasa-katalog.onrender.com/api/chassis/${slug}`)
 
         if(!response.ok){
             throw new Error('Api hatasi')
