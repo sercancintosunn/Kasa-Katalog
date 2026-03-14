@@ -30,7 +30,7 @@ const schema = mongoose.Schema({
         end: {type: Number}
     },
     body_styles: [{
-        type: {type:String, enum: ["sedan","coupe","cabrio","wagon","hatchback","suv"]},
+        type: {type:String, enum: ["sedan","coupe","cabrio","wagon","hatchback","suv","van"]},
         doors: Number,
         sub_code: String
     }],
