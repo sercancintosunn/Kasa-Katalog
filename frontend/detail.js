@@ -39,15 +39,15 @@ async function getBySlug() {
                         </div>
                         <div class="spec-row">
                             <span class="spec-key">0/100 km/s Hızlanma</span>
-                            <span class="spec-val"  id="specAcceleration">${currentResult.variants[0].acceleration}s</span>
+                            <span class="spec-val"  id="specAcceleration">${currentResult.variants?.[0]?.acceleration ?? '-'}s</span>
                         </div>
                         <div class="spec-row">
                             <span class="spec-key">Çeker Sistemi</span>
-                            <span class="spec-val"  id="specTraction">${currentResult.variants[0].traction}</span>
+                            <span class="spec-val"  id="specTraction">${currentResult.variants?.[0]?.traction ?? '-'}</span>
                         </div>
                         <div class="spec-row">
                             <span class="spec-key">Ağırlık</span>
-                            <span class="spec-val" id="specWeight" >${currentResult.variants[0].weight}kg</span>
+                            <span class="spec-val" id="specWeight" >${currentResult.variants?.[0]?.weight ?? '-'}kg</span>
                         </div>
                     </div>
 
