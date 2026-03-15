@@ -21,6 +21,7 @@ const seedDatabase = async () =>{
     generation: car.generation,
     production: car.production,
     body_styles: car.body_styles,
+    variants: car.variants
   }))
 
   const result =  await ChassisCode.insertMany(seedData)
