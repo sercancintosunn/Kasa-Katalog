@@ -1,81 +1,227 @@
-🚗 Kasa Katalog
-Kasa Katalog; otomobil tutkunları ve yazılımcılar için geliştirilmiş, araçların kasa kodları (E46, W211, R34 vb.), teknik özellikleri, motor seçenekleri ve üretim yıllarını içeren kapsamlı bir REST API ve web arayüzüdür.
+# 🚗 Kasa Katalog
 
-Canlı Demo: kasa-katalog.vercel.app
+<p align="center">
+  <b>Otomobil kasa kodları ve teknik özellikleri için modern bir web kataloğu ve REST API</b>
+</p>
 
-Backend API: kasa-katalog.onrender.com
+<p align="center">
+  <a href="https://kasa-katalog.vercel.app/"><b>🌐 Canlı Demo</b></a> •
+  <a href="https://kasa-katalog.onrender.com/"><b>🔌 Backend API</b></a>
+</p>
 
-🚀 Özellikler
-Detaylı Kasa Verileri: BMW, Mercedes-Benz, Audi, Nissan, Toyota gibi markaların ikonik modellerine ait nesil ve kasa kodu bilgileri.
+---
 
-Motor Seçenekleri (Variants): Her kasa kodu için beygir gücü (HP), tork (Nm), hızlanma (0-100 km/s) ve çekiş sistemi gibi teknik detaylar.
+## 📖 Proje Hakkında
 
-Gelişmiş Filtreleme: Marka, yakıt tipi ve kasa tipine göre dinamik arama ve filtreleme seçenekleri.
+**Kasa Katalog**, otomobil tutkunları için geliştirilmiş bir **web kataloğu ve REST API** projesidir.
 
-Wikipedia Entegrasyonu: Wikipedia API kullanılarak otomatik olarak çekilen araç açıklamaları ve görseller.
+Projede BMW, Mercedes-Benz, Audi, Nissan ve Toyota gibi markalara ait araçların:
 
-Responsive Tasarım: Mobil uyumlu, modern ve "Dark Mode" odaklı minimalist kullanıcı arayüzü.
+* 🚗 **Kasa kodları** (E46, W211, R34 vb.)
+* ⚙️ **Motor seçenekleri**
+* 📅 **Üretim yılları**
+* 🔧 **Teknik özellikleri**
+* 🖼️ **Wikipedia açıklamaları ve görselleri**
 
-🛠️ Kullanılan Teknolojiler
-Backend
-Node.js & Express: Hızlı ve ölçeklenebilir REST API mimarisi.
+gibi bilgiler tek bir platformda sunulmaktadır.
 
-MongoDB & Mongoose: Esnek veri modelleme ve veritabanı yönetimi.
+---
 
-Axios & Cheerio: Veri çekme ve Wikipedia API entegrasyonu.
+# ✨ Özellikler
 
-Dotenv: Çevresel değişken yönetimi.
+### 🚘 Detaylı Araç Verileri
 
-Frontend
-Vanilla JavaScript: Hafif ve performanslı DOM yönetimi.
+İkonik araç modellerine ait **kasa kodları, nesil bilgileri ve üretim tarihleri**.
 
-CSS3: Özel değişkenler (CSS Variables) ve Grid/Flexbox ile modern tasarım.
+### ⚙️ Motor Seçenekleri (Variants)
 
-HTML5: Semantik yapı ve SEO uyumlu içerik.
+Her kasa için:
 
-📂 Proje Yapısı
-Plaintext
-├── backend/
-│   ├── src/
-│   │   ├── config/      # Veritabanı bağlantı ayarları
-│   │   ├── controllers/ # API mantığı ve filtreleme işlemleri
-│   │   ├── models/      # Mongoose veri şemaları
-│   │   ├── routes/      # API uç noktaları (endpoints)
-│   │   ├── scripts/     # Veri ekleme (seed) ve scraper araçları
+* Beygir gücü (**HP**)
+* Tork (**Nm**)
+* 0-100 hızlanma
+* Çekiş sistemi
+* Motor tipi
+
+gibi teknik detaylar.
+
+### 🔍 Gelişmiş Filtreleme
+
+Kullanıcılar araçları şu kriterlere göre filtreleyebilir:
+
+* Marka
+* Yakıt tipi
+* Kasa tipi
+
+### 🌐 Wikipedia Entegrasyonu
+
+Araç açıklamaları ve görseller **Wikipedia API** kullanılarak otomatik olarak çekilir.
+
+### 📱 Responsive Tasarım
+
+Mobil uyumlu **modern ve dark-mode odaklı kullanıcı arayüzü**.
+
+---
+
+# 🛠️ Kullanılan Teknolojiler
+
+## Backend
+
+* **Node.js**
+* **Express.js**
+* **MongoDB**
+* **Mongoose**
+* **Axios**
+* **Cheerio**
+* **Dotenv**
+
+### Backend Özellikleri
+
+* REST API mimarisi
+* MongoDB veri modelleme
+* Web scraping
+* Otomatik veri seed sistemi
+
+---
+
+## Frontend
+
+* **Vanilla JavaScript**
+* **HTML5**
+* **CSS3**
+* **Flexbox & Grid Layout**
+* **Responsive Design**
+* **Dark Mode UI**
+
+Frontend tarafı **hafif, hızlı ve framework bağımsız** olacak şekilde tasarlanmıştır.
+
+---
+
+# 📂 Proje Yapısı
+
+```
+kasa-katalog
+│
+├── backend
+│   ├── src
+│   │   ├── config       # Veritabanı bağlantı ayarları
+│   │   ├── controllers  # API mantığı ve filtreleme işlemleri
+│   │   ├── models       # Mongoose veri şemaları
+│   │   ├── routes       # API endpointleri
+│   │   ├── scripts      # Seed ve scraper araçları
 │   │   └── server.js    # Sunucu başlangıç noktası
-├── frontend/
-│   ├── index.html       # Ana vitrin arayüzü
+│
+├── frontend
+│   ├── index.html       # Ana sayfa
 │   ├── detail.html      # Araç detay sayfası
-│   ├── app.js           # Ana sayfa dinamikleri ve API fetch işlemleri
-│   └── style.css        # Modern karanlık tema tasarımları
-⚙️ Kurulum ve Çalıştırma
-Depoyu klonlayın:
+│   ├── app.js           # Ana sayfa JS
+│   ├── detail.js        # Detay sayfası JS
+│   └── style.css        # UI tasarım dosyası
+```
 
-Bash
+---
+
+# ⚙️ Kurulum
+
+## 1️⃣ Gereksinimler
+
+* Node.js **v18+**
+* MongoDB (**Local veya Atlas**)
+* Git
+
+---
+
+## 2️⃣ Projeyi Klonlama
+
+```bash
 git clone https://github.com/sercancintosunn/kasa-katalog.git
 cd kasa-katalog
-Bağımlılıkları yükleyin:
+```
 
-Bash
-cd backend
-npm install
-.env dosyasını oluşturun:
-backend klasörü içinde bir .env dosyası oluşturun ve MongoDB bağlantı adresinizi ekleyin:
+---
 
-Kod snippet'i
+## 3️⃣ Ortam Değişkenleri
+
+`backend` klasörünün içine `.env` dosyası oluşturun:
+
+```env
 MONGODB_URI=your_mongodb_connection_string
 PORT=5000
-Veritabanını hazırlayın:
-Örnek verileri yüklemek ve görselleri çekmek için:
+```
 
-Bash
-npm run seed    # Örnek araç listesini yükler
-npm run scrape  # Wikipedia'dan veri ve resim çeker
-Uygulamayı başlatın:
+---
 
-Bash
-npm run dev     # Nodemon ile geliştirme modunda başlatır
-📝 Lisans
-Bu proje ISC lisansı ile korunmaktadır.
+## 4️⃣ Bağımlılıkları Kurma
 
-Hazırlayan: Sercan Çintosun
+```bash
+cd backend
+npm install
+```
+
+---
+
+## 5️⃣ Veritabanını Doldurma
+
+```bash
+npm run seed
+```
+
+Bu komut **örnek araç verilerini** MongoDB’ye yükler.
+
+---
+
+## 6️⃣ Wikipedia Verilerini Çekme
+
+```bash
+npm run scrape
+```
+
+Bu işlem araçlar için:
+
+* açıklamalar
+* görseller
+
+gibi verileri Wikipedia’dan çeker.
+
+---
+
+## ▶️ Uygulamayı Çalıştırma
+
+```bash
+npm run dev
+```
+
+Sunucu çalıştıktan sonra:
+
+```
+frontend/index.html
+```
+
+dosyasını tarayıcıda açarak uygulamayı kullanabilirsiniz.
+
+---
+
+# 🌍 Canlı Demo
+
+Frontend:
+
+👉 https://kasa-katalog.vercel.app/
+
+Backend API:
+
+👉 https://kasa-katalog.onrender.com/
+
+---
+
+# 🧑‍💻 Geliştirici
+
+**Sercan Çintosun**
+
+GitHub:
+https://github.com/sercancintosunn
+
+---
+
+# 📜 Lisans
+
+Bu proje **ISC Lisansı** ile lisanslanmıştır.
