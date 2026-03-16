@@ -10,17 +10,17 @@ const HEADERS = { 'User-Agent': 'KasaKatalog/1.0 (https://kasa-katalog.onrender.
 
 async function getImages(term) {
     try {
-        // Sayfadaki tüm resim isimlerini çek
+     
         const listUrl = `https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(term)}&prop=images&format=json&imlimit=20`
         const listRes = await axios.get(listUrl, { headers: HEADERS })
         const pages = listRes.data.query.pages
         const pageId = Object.keys(pages)[0]
         const imageFiles = pages[pageId]?.images || []
 
-        // Sadece jpg/png olanları al
+     
         const filtered = imageFiles.filter(img => img.title.match(/\.(jpg|jpeg|png)/i))
 
-        // Her resmin URL'sini çek
+     
         const imageUrls = []
         for(const img of filtered.slice(0, 6)) {
             try {
@@ -54,7 +54,7 @@ async function scrapeWikipedia(searchTerm, brand, model, code) {
             const response = await axios.get(url, { headers: HEADERS })
 
             if(response.data.type !== 'disambiguation' && response.data.extract) {
-                // Görselleri çek
+                
                 const imageUrls = await getImages(term.replace(/ /g, '_'))
 
                 const images = imageUrls.length > 0
@@ -80,7 +80,7 @@ async function scrapeAll() {
     const chassis = await ChassisCode.find()
 
     for(const car of chassis) {
-        // carList'ten searchTerm'i bul
+   
         const carData = carList.find(c => c.code === car.code && c.brand === car.brand)
         const searchTerm = carData?.searchTerm || `${car.brand}_${car.code}`
 
@@ -102,7 +102,7 @@ async function scrapeAll() {
                 console.log(`${car.code} için veri bulunamadı`)
             }
 
-            // Rate limit için bekle
+      
             await new Promise(r => setTimeout(r, 500))
 
         } catch(error) {
