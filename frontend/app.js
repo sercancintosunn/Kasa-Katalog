@@ -2,6 +2,8 @@ const chassisGrid = document.querySelector('.chassis-grid')
 const chassisCard = document.querySelector('.chassis-card')
 const searchInput = document.querySelector('.search-input')
 const filterBtn = document.querySelectorAll('.filter-btn')
+const sidebar = document.querySelector('aside')
+const mobileFilterBtn = document.getElementById('mobileFilterBtn')
 
 const activeFilters = {
     q: '',
@@ -107,6 +109,18 @@ filterBtn.forEach(btn =>{
         getAll(activeFilters)
     })
 })
+
+
+mobileFilterBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+});
+
+
+document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !mobileFilterBtn.contains(e.target)) {
+        sidebar.classList.remove('active');
+    }
+});
 
 
 getAll()
