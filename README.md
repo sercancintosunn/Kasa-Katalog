@@ -5,8 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://kasa-katalog.vercel.app/"><b>🌐 Canlı Demo</b></a> •
-  <a href="https://kasa-katalog.onrender.com/"><b>🔌 Backend API</b></a>
+  <a href="https://kasa-katalog.onrender.com/"><b>🔌 Canlı Demo</b></a>
 </p>
 
 ---
